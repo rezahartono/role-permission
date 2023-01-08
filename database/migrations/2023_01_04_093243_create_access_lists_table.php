@@ -17,6 +17,7 @@ class CreateAccessListsTable extends Migration
             $table->string('id', 60)->primary()->unique();
             $table->string('name', 150)->unique();
             $table->string('key')->unique();
+            $table->string('menu', 60);
             $table->string('description')->nullable();
             $table->string('path')->nullable();
             $table->timestamps();

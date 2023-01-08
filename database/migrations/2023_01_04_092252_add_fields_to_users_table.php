@@ -14,7 +14,7 @@ class AddFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role', 60);
+            $table->string('role', 60)->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('image')->nullable();
         });

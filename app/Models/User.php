@@ -27,6 +27,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'status',
+        'image'
     ];
 
     /**
@@ -47,4 +50,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get Groups User
+     *
+     */
+    public function group()
+    {
+        return $this->belongsToMany(Group::class, 'user_groups', 'group', 'user');
+    }
 }
