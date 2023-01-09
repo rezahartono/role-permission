@@ -24,7 +24,7 @@ class AccessList extends Model
         'name',
         'description',
         'key',
-        'path',
+        'menu',
     ];
 
     /**

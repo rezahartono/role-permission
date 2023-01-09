@@ -25,7 +25,6 @@ class MenuList extends Model
         'description',
         'key',
         'parent',
-        'path',
         'access',
         'icon_class',
         'order',

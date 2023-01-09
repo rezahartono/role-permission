@@ -33,7 +33,7 @@ class RoleController extends Controller
             $role->delete();
 
             if ($role) {
-                Alert::success('Success', 'User has been deleted!');
+                Alert::success('Success', 'Role has been deleted!');
                 return back();
             }
         } catch (\Throwable $th) {

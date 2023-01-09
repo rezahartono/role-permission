@@ -35,10 +35,25 @@ Route::middleware('auth')->group(function () {
             Route::get('/delete/{id}', 'MasterData\UsersController@delete');
         });
     });
+
     Route::prefix('settings')->group(function () {
         Route::prefix('roles')->group(function () {
             Route::get('/', 'Settings\RoleController@index')->name('roles');
             Route::get('/delete/{id}', 'Settings\RoleController@delete');
         });
+        Route::prefix('menu-list')->group(function () {
+            Route::get('/', 'Settings\MenuListController@index')->name('menu_list');
+            Route::get('create', 'Settings\MenuListController@store')->name('menu_list.create');
+            Route::post('create', 'Settings\MenuListController@create');
+            Route::get('/delete/{id}', 'Settings\MenuListController@delete');
+        });
+        Route::prefix('access-list')->group(function () {
+            Route::get('/', 'Settings\AccessListController@index')->name('access_list');
+            Route::get('/delete/{id}', 'Settings\AccessListController@delete');
+        });
+    });
+
+    Route::prefix('lookup-data')->group(function () {
+        Route::get('menu-list', 'LookupDatatableRenderer@menuList')->name('lookup.menu_list');
     });
 });

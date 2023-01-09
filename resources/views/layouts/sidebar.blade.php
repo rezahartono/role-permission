@@ -52,13 +52,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="{{ route('menu_list') }}" class="nav-link">
                                 <i class="fas fa-list-ul nav-icon"></i>
                                 <p>Menu List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="{{ route('access_list') }}" class="nav-link">
                                 <i class="fas fa-shield-alt nav-icon"></i>
                                 <p>Access List</p>
                             </a>

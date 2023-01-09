@@ -9,7 +9,7 @@ class DataTable
 {
     public $data, $pathView, $pathEdit, $pathDelete;
 
-    public function __construct($data, $pathView, $pathEdit, $pathDelete)
+    public function __construct($data, $pathView = "", $pathEdit = "", $pathDelete = "")
     {
         $this->data = $data;
         $this->pathView = $pathView;
@@ -26,6 +26,18 @@ class DataTable
                 $btnEdit = '<a href="' . $this->pathEdit  . '/' . $row->id . '" class="btn btn-primary btn-sm mx-1"><i class="fas fa-edit"></i></a>';
                 $btnDelete = '<a href="' . $this->pathDelete  . '/' . $row->id . '" class="btn btn-danger btn-sm mx-1"><i class="fas fa-trash"></i></a>';
                 return $btnView . $btnEdit . $btnDelete;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
+    public function generateLookup()
+    {
+        return DataTables::of($this->data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $btnSelect = '<button type="button" onclick="selectData(\'' . $row->id . '\', \'' . $row->name . '\')" class="btn btn-primary btn-sm mx-1"><i class="fas fa-check mr-1"></i>Select</button>';
+                return $btnSelect;
             })
             ->rawColumns(['action'])
             ->make(true);

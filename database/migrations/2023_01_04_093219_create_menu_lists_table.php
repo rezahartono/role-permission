@@ -17,8 +17,7 @@ class CreateMenuListsTable extends Migration
             $table->string('id', 60)->primary()->unique();
             $table->string('name', 150)->unique();
             $table->string('description')->nullable();
-            $table->string('key');
-            $table->string('path');
+            $table->string('key')->unique();
             $table->string('parent', 60)->nullable();
             $table->string('icon_class')->nullable();
             $table->integer('order')->default(1);
