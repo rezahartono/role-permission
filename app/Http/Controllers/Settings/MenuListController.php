@@ -69,7 +69,7 @@ class MenuListController extends Controller
 
             if ($menu != null) {
                 Alert::success('Success', 'Menu has been created');
-                return redirect()->route('menu_list');
+                return redirect()->route('settings.menu_list');
             }
         } catch (\Throwable $th) {
             // throw $th;

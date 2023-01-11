@@ -8,19 +8,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action w-50 active" id="list-home-list"
-                                    data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
-                                <a class="list-group-item list-group-item-action w-50" id="list-profile-list"
-                                    data-toggle="list" href="#list-profile" role="tab"
-                                    aria-controls="profile">Groups</a>
+                    <form action="/master-data/users/create" method="post">
+                        @csrf
+                        @method('POST')
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+                                    <a class="list-group-item list-group-item-action w-50 active" id="list-home-list"
+                                        data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
+                                    <a class="list-group-item list-group-item-action w-50" id="list-profile-list"
+                                        data-toggle="list" href="#list-profile" role="tab"
+                                        aria-controls="profile">Groups</a>
+                                </div>
                             </div>
-                        </div>
-                        <form action="/master-data/users/create" method="post">
-                            @csrf
-                            @method('POST')
                             <div class="col-12">
                                 <div class="tab-content" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="list-home" role="tabpanel"
@@ -115,8 +115,8 @@
                             <div class="col-12">
                                 <button class="btn btn-primary"><i class="fas fa-save mr-3"></i>Save</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

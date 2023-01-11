@@ -18,7 +18,8 @@
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
                                     <h4>Manage Roles</h4>
-                                    <a class="btn btn-primary" href=""><i class="fas fa-plus mr-3"></i>Create
+                                    <a class="btn btn-primary" href="{{ route('settings.roles.create') }}"><i
+                                            class="fas fa-plus mr-3"></i>Create
                                         Role</a>
                                 </div>
                             </div>

@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
                                     <h4>Manage Menu Lists</h4>
-                                    <a class="btn btn-primary" href="{{ route('menu_list.create') }}"><i
+                                    <a class="btn btn-primary" href="{{ route('settings.menu_list.create') }}"><i
                                             class="fas fa-plus mr-3"></i>Create
                                         Menu</a>
                                 </div>

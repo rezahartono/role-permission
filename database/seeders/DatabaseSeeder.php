@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'id' => Uuid::uuid(),
             'name' => 'Administrator',
-            'email' => 'admin@rezahartono.my.id',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
@@ -43,6 +43,16 @@ class DatabaseSeeder extends Seeder
             'id' => Uuid::uuid(),
             'name' => 'Admin',
             'description' => 'This is a admin role for handle all moddule, etc. with min settings',
+            'access_type' => 'custom',
+            'access' => json_encode([]),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        Role::insert([
+            'id' => Uuid::uuid(),
+            'name' => 'User',
+            'description' => 'This is a user role',
             'access_type' => 'custom',
             'access' => json_encode([]),
             'created_at' => Carbon::now(),

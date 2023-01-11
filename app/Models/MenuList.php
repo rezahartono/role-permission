@@ -45,4 +45,13 @@ class MenuList extends Model
     {
         return $this->hasMany(AccessList::class, 'menu', 'id');
     }
+
+    /**
+     * Get Children of Menu
+     *
+     */
+    public function children()
+    {
+        return $this->hasMany(MenuList::class, 'parent', 'id');
+    }
 }

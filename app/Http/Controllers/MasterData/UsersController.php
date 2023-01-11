@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
@@ -36,7 +37,6 @@ class UsersController extends Controller
         $data = [
             "user" => Auth::user(),
             "title" => "Create Users",
-            "users" => $this->users,
             "roles" => Role::get(),
         ];
         return view('pages.master-data.users.create', $data);
@@ -64,14 +64,14 @@ class UsersController extends Controller
             $user->email = $request->email;
             $user->role = $request->role;
             $user->status = $request->status;
-            $user->password = $request->password;
+            $user->password = Hash::make($request->password);
             $user->created_at = Carbon::now();
             $user->updated_at = Carbon::now();
             $user->save();
 
             if ($user != null) {
                 Alert::success('Success', 'User has been created');
-                return redirect()->route('users');
+                return redirect()->route('master_data.users');
             }
         } catch (\Throwable $th) {
             // throw $th;
