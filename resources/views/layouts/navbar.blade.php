@@ -43,7 +43,7 @@
                         alt="User Image" data-toggle="tooltip" data-placement="top" title="{{ $user->name }}">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block text-black">Sign Out</a>
+                    <a href="{{ route('logout') }}" class="d-block text-black">Sign Out</a>
                 </div>
             </div>
         </li>

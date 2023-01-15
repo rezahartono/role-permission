@@ -19,7 +19,7 @@ class RoleController extends Controller
     {
         if ($request->ajax()) {
             $roles = Role::select()->get();
-            $datatable = new DataTable($roles, '', '/settings/roles/edit', '/settings/roles/delete/');
+            $datatable = new DataTable($roles, '', '/settings/roles/edit', '/settings/roles/delete');
             return $datatable->generate();
         }
 

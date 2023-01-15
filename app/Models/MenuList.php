@@ -54,4 +54,13 @@ class MenuList extends Model
     {
         return $this->hasMany(MenuList::class, 'parent', 'id');
     }
+
+    /**
+     * Get parent of Menu
+     *
+     */
+    public function parentData()
+    {
+        return $this->belongsTo(MenuList::class, 'parent', 'id');
+    }
 }

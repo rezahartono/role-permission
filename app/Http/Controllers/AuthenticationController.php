@@ -9,6 +9,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthenticationController extends Controller
 {
+    public function __construct()
+    {
+    }
     /**
      * Login view
      *
@@ -44,6 +47,22 @@ class AuthenticationController extends Controller
                     'email' => 'The provided credentials do not match our records.',
                 ])->onlyInput('email');
             }
+        } catch (\Throwable $th) {
+            Alert::error('Error Occured!', $th);
+            return back();
+        }
+    }
+
+    public function doLogout(Request $request)
+    {
+        try {
+            Auth::logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect('/');
         } catch (\Throwable $th) {
             Alert::error('Error Occured!', $th);
             return back();

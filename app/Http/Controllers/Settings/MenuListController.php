@@ -19,7 +19,7 @@ class MenuListController extends Controller
     {
         if ($request->ajax()) {
             $menuList = MenuList::select()->get();
-            $datatable = new DataTable($menuList, '', '', '/settings/roles/delete/');
+            $datatable = new DataTable($menuList, '', '/settings/menu-list/edit', '/settings/menu-list/delete');
             return $datatable->generate();
         }
 
@@ -69,6 +69,51 @@ class MenuListController extends Controller
 
             if ($menu != null) {
                 Alert::success('Success', 'Menu has been created');
+                return redirect()->route('settings.menu_list');
+            }
+        } catch (\Throwable $th) {
+            // throw $th;
+        }
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            "user" => Auth::user(),
+            "title" => "Edit Menu",
+            "menu" => MenuList::with('parentData')->where("id", $id)->first(),
+        ];
+        return view('pages.settings.menu_list.edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|max:255',
+                'key' => 'required|unique:menu_lists,key,' . $id,
+                'description' => 'max:255',
+                'parent' => 'max:100',
+                'icon' => 'required|max:255',
+                'order' => 'required|numeric'
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator->errors());
+            }
+
+            $menu = MenuList::where("id", $id)->first();
+            $menu->name = $request->name;
+            $menu->description = $request->description;
+            $menu->key = $request->key;
+            $menu->parent = $request->parent;
+            $menu->icon_class = $request->icon;
+            $menu->order = $request->order;
+            $menu->updated_at = Carbon::now();
+            $menu->update();
+
+            if ($menu) {
+                Alert::success('Success', 'Menu has been update');
                 return redirect()->route('settings.menu_list');
             }
         } catch (\Throwable $th) {

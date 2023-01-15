@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
                                     <h4>Manage Users</h4>
-                                    <a class="btn btn-primary" href="{{ route('master-data.users.create') }}"><i
+                                    <a class="btn btn-primary" href="{{ route('master_data.users.create') }}"><i
                                             class="fas fa-plus mr-3"></i>Create User</a>
                                 </div>
                             </div>

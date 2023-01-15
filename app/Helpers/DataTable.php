@@ -14,7 +14,7 @@ class DataTable
         $this->data = $data;
         $this->pathView = $pathView;
         $this->pathEdit = $pathEdit;
-        $this->pathDelete = $pathView;
+        $this->pathDelete = $pathDelete;
     }
 
     public function generate()
@@ -22,10 +22,10 @@ class DataTable
         return DataTables::of($this->data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
-                $btnView = '<a href="' . $this->pathView  . '/' . $row->id . '" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>';
+                // $btnView = '<a href="' . $this->pathView  . '/' . $row->id . '" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>';
                 $btnEdit = '<a href="' . $this->pathEdit  . '/' . $row->id . '" class="btn btn-primary btn-sm mx-1"><i class="fas fa-edit"></i></a>';
                 $btnDelete = '<a href="' . $this->pathDelete  . '/' . $row->id . '" class="btn btn-danger btn-sm mx-1"><i class="fas fa-trash"></i></a>';
-                return $btnView . $btnEdit . $btnDelete;
+                return  $btnEdit . $btnDelete;
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -48,10 +48,10 @@ class DataTable
         return DataTables::of($this->data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
-                $btnView = '<a href="' . $this->pathView  . '/' . $row->id . '" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>';
+                // $btnView = '<a href="' . $this->pathView  . '/' . $row->id . '" class="btn btn-info btn-sm mx-1"><i class="fas fa-eye"></i></a>';
                 $btnEdit = '<a href="' . $this->pathEdit  . '/' . $row->id . '" class="btn btn-primary btn-sm mx-1"><i class="fas fa-edit"></i></a>';
                 $btnDelete = '<a href="' . $this->pathDelete  . '/' . $row->id . '" class="btn btn-danger btn-sm mx-1"><i class="fas fa-trash"></i></a>';
-                return $btnView . $btnEdit . $btnDelete;
+                return $btnEdit . $btnDelete;
             })
             ->rawColumns(['action']);
     }
