@@ -56,7 +56,7 @@
                                     </div>
                                 @enderror --}}
                                 <x-lookup-input label="Parent" id="parent" name="parent" placeholder="Choose Parent"
-                                    modal-id="parentModal" :menu="$menu->parentData"></x-lookup-input>
+                                    modal-id="parentModal" :data="$menu->parentData"></x-lookup-input>
                                 @error('parent')
                                     <div id="parent" class="form-text text-danger error my-3">
                                         {{ $message }}

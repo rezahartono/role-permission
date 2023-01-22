@@ -41,7 +41,9 @@ Route::middleware('auth')->group(function () {
         Route::prefix('groups')->group(function () {
             Route::get('/', 'MasterData\GroupsController@index')->name('master_data.groups');
             Route::get('create', 'MasterData\GroupsController@store')->name('master_data.groups.create');
+            Route::get('edit/{id}', 'MasterData\GroupsController@edit')->name('master_data.groups.edit');
             Route::post('create', 'MasterData\GroupsController@create');
+            Route::post('edit/{id}', 'MasterData\GroupsController@update')->name('master_data.groups.update');
             Route::get('delete/{id}', 'MasterData\GroupsController@delete');
         });
     });
@@ -65,6 +67,10 @@ Route::middleware('auth')->group(function () {
         });
         Route::prefix('access-list')->group(function () {
             Route::get('/', 'Settings\AccessListController@index')->name('settings.access_list');
+            Route::get('create', 'Settings\AccessListController@store')->name('settings.access_list.create');
+            Route::get('edit/{id}', 'Settings\AccessListController@edit')->name('settings.access_list.edit');
+            Route::post('create', 'Settings\AccessListController@create')->name('settings.access_list.create');
+            Route::post('edit/{id}', 'Settings\AccessListController@update')->name('settings.access_list.update');
             Route::get('delete/{id}', 'Settings\AccessListController@delete');
         });
     });

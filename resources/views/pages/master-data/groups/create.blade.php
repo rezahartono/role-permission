@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body px-4">
-                    <form action="/settings/access-list/create" method="post">
+                    <form action="/master-data/groups/create" method="post">
                         @csrf
                         @method('POST')
                         <div class="row py-4">
@@ -23,7 +23,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="key">Key</label>
                                     <input type="text" name="key" class="form-control" id="key"
                                         placeholder="Key">
@@ -32,7 +32,7 @@
                                     <div id="key" class="form-text text-danger error my-3">
                                         {{ $message }}
                                     </div>
-                                @enderror
+                                @enderror --}}
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description"></textarea>
@@ -55,13 +55,33 @@
                                         {{ $message }}
                                     </div>
                                 @enderror --}}
-                                <x-lookup-input label="Menu" id="menu" name="menu" placeholder="Choose Menu"
-                                    modal-id="menuModal"></x-lookup-input>
-                                @error('menu')
-                                    <div id="menu" class="form-text text-danger error my-3">
+                                {{-- <x-lookup-input label="Parent" id="parent" name="parent" placeholder="Choose Parent"
+                                    modal-id="parentModal"></x-lookup-input>
+                                @error('parent')
+                                    <div id="parent" class="form-text text-danger error my-3">
                                         {{ $message }}
                                     </div>
                                 @enderror
+                                <div class="form-group">
+                                    <label for="icon">Icon Class</label>
+                                    <input type="text" name="icon" class="form-control" id="icon"
+                                        placeholder="Icon Class">
+                                </div>
+                                @error('icon')
+                                    <div id="icon" class="form-text text-danger error my-3">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                <div class="form-group">
+                                    <label for="order">Order</label>
+                                    <input type="text" name="order" class="form-control" id="order"
+                                        placeholder="Order">
+                                </div>
+                                @error('order')
+                                    <div id="order" class="form-text text-danger error my-3">
+                                        {{ $message }}
+                                    </div>
+                                @enderror --}}
                             </div>
                         </div>
                         <div class="col-12">
@@ -72,6 +92,4 @@
             </div>
         </div>
     </div>
-    <x-master-data-modal id="menuModal" modal-title="Show Menu List" path="{{ route('lookup.menu_list') }}" input-id="menu">
-    </x-master-data-modal>
 @endsection

@@ -17,15 +17,15 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <h4>Manage Access Lists</h4>
-                                    <a class="btn btn-primary" href="{{ route('settings.access_list.create') }}"><i class="fas fa-plus mr-3"></i>Create
-                                        Access</a>
+                                    <h4>Manage Groups</h4>
+                                    <a class="btn btn-primary" href="{{ route('master_data.groups.create') }}"><i
+                                            class="fas fa-plus mr-3"></i>Create Group</a>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered role_datatable w-100">
+                                <table class="table table-bordered group_datatable w-100">
                                     <thead class="bg-primary">
                                         <tr>
                                             <th class="text-center">No</th>
@@ -84,11 +84,11 @@
                 };
             };
 
-            var table = $('.role_datatable').DataTable({
+            var table = $('.group_datatable').DataTable({
                 processing: true,
                 serverSide: true,
                 responsive: true,
-                ajax: "/settings/access-list",
+                ajax: "/master-data/groups",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'no'
@@ -102,8 +102,8 @@
                         name: 'description'
                     },
                     // {
-                    //     data: 'order',
-                    //     name: 'order'
+                    //     data: 'status',
+                    //     name: 'status'
                     // },
                     // {
                     //     data: 'created_at',
@@ -128,10 +128,11 @@
                         "searchable": true,
                         "orderable": true,
                         "targets": 1,
-                    }, {
-                        "targets": 3,
-                        "className": "dt-center",
                     },
+                    //  {
+                    //     "targets": 3,
+                    //     "className": "dt-center",
+                    // },
                     {
                         "className": "dt-center",
                         "targets": "_all"

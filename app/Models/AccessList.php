@@ -33,4 +33,13 @@ class AccessList extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    /**
+     * Get menu of Access
+     *
+     */
+    public function parentMenu()
+    {
+        return $this->belongsTo(MenuList::class, 'menu', 'id');
+    }
 }

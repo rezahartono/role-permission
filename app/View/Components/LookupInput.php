@@ -7,21 +7,21 @@ use Illuminate\View\Component;
 
 class LookupInput extends Component
 {
-    public $label, $id, $placeholder, $name, $modalId, $menu;
+    public $label, $id, $placeholder, $name, $modalId, $lookupData;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label = "", $id = "", $placeholder = "", $name = "", $modalId = "", MenuList $menu = null)
+    public function __construct($label = "", $id = "", $placeholder = "", $name = "", $modalId = "", $data = null)
     {
         $this->label = $label;
         $this->id = $id;
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->modalId = $modalId;
-        $this->menu = $menu;
+        $this->lookupData = $data;
     }
 
     /**
